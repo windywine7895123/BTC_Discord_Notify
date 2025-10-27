@@ -1,5 +1,6 @@
 import { Elysia } from "elysia";
 import { cron } from "@elysiajs/cron";
+import { cors } from "@elysiajs/cors";
 import { fetchAndSaveBTC } from "./btc.ts";
 import { generateBTCChart } from "./chart.ts";
 import { sendToDiscord } from "./discord.ts";
@@ -17,6 +18,14 @@ async function sendStartupNotification() {
 }
 
 const app = new Elysia()
+  .use(
+    cors({
+      origin: true, // Allow all origins
+      methods: ["GET"], // Only allow GET requests
+      credentials: true,
+      allowedHeaders: ["Content-Type", "Authorization"],
+    }),
+  )
   .use(
     cron({
       name: "btc-update",
