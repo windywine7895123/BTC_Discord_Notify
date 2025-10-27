@@ -43,7 +43,3 @@ const app = new Elysia()
   });
 
 app.listen(3000);
-console.log("🚀 Elysia server running at http://localhost:3000");
-
-// Send notification when app starts
-sendStartupNotification();
