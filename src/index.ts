@@ -5,18 +5,6 @@ import { fetchAndSaveBTC } from "./btc.ts";
 import { generateBTCChart } from "./chart.ts";
 import { sendToDiscord } from "./discord.ts";
 
-// Send startup notification function
-async function sendStartupNotification() {
-  try {
-    const { price } = await fetchAndSaveBTC();
-    const chart = await generateBTCChart();
-    await sendToDiscord(price, chart, "startup");
-    console.log("📬 Sent startup notification!");
-  } catch (error) {
-    console.error("Failed to send startup notification:", error);
-  }
-}
-
 const app = new Elysia()
   .use(
     cors({
