@@ -2,6 +2,7 @@ import axios from "axios";
 import { db } from "./firebase.ts";
 import { BTCPrice, CoinGeckoResponse } from "./types.ts";
 
+//test commit
 export async function fetchAndSaveBTC(): Promise<{
   price: number;
   timestamp: string;
