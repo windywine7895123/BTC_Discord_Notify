@@ -6,6 +6,7 @@ export async function fetchAndSaveBTC(): Promise<{
   price: number;
   timestamp: string;
 }> {
+  //url for calling api
   const url =
     "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd";
   const { data } = await axios.get<CoinGeckoResponse>(url);
